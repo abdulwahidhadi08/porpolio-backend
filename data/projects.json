@@ -1,0 +1,86 @@
+[
+  {
+    "title": "E-Commerce Platform",
+    "description": "A full-stack e-commerce solution with payment integration, inventory management, and admin dashboard.",
+    "tech": [
+      "React",
+      "Node.js",
+      "MongoDB",
+      "Stripe"
+    ],
+    "image": "🛍️",
+    "github": "#",
+    "live": "#",
+    "order": 1
+  },
+  {
+    "title": "Task Management App",
+    "description": "Collaborative task management application with real-time updates, team features, and project analytics.",
+    "tech": [
+      "React",
+      "Firebase",
+      "Tailwind CSS",
+      "Redux"
+    ],
+    "image": "✅",
+    "github": "#",
+    "live": "#",
+    "order": 2
+  },
+  {
+    "title": "Weather Dashboard",
+    "description": "Real-time weather application with interactive maps, forecasts, and location-based features.",
+    "tech": [
+      "React",
+      "API Integration",
+      "Charts.js",
+      "Geolocation"
+    ],
+    "image": "🌤️",
+    "github": "#",
+    "live": "#",
+    "order": 3
+  },
+  {
+    "title": "Social Media Analytics",
+    "description": "Analytics dashboard for social media metrics with data visualization and trend analysis.",
+    "tech": [
+      "React",
+      "D3.js",
+      "Express",
+      "PostgreSQL"
+    ],
+    "image": "📊",
+    "github": "#",
+    "live": "#",
+    "order": 4
+  },
+  {
+    "title": "Chat Application",
+    "description": "Real-time messaging app with user authentication, file sharing, and notification system.",
+    "tech": [
+      "React",
+      "Socket.io",
+      "Node.js",
+      "MongoDB"
+    ],
+    "image": "💬",
+    "github": "#",
+    "live": "#",
+    "order": 5
+  },
+  {
+    "title": "Blog Platform",
+    "description": "Content management system with markdown support, tags, comments, and SEO optimization.",
+    "tech": [
+      "Next.js",
+      "Prisma",
+      "PostgreSQL",
+      "MDX"
+    ],
+    "image": "📝",
+    "github": "#",
+    "live": "#",
+    "order": 6
+  }
+]
