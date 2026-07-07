@@ -8,7 +8,8 @@ import { fileURLToPath } from "url";
 import apiRoutes from "./src/routes/api.js";
 import errorHandler from "./src/middlewares/errorHandler.js";
 import { apiLimiter } from "./src/middlewares/rateLimiter.js";
-
+import { config } from "dotenv";
+config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -25,10 +26,7 @@ app.use(
 // CORS: Enable Cross-Origin Resource Sharing for all origins in development
 app.use(
   cors({
-    origin:
-      process.env.NODE_ENV === "production"
-        ? "https://portpolio-frontend-pi.vercel.app"
-        : "*",
+    origin: "https://portpolio-frontend-pi.vercel.app",
   }),
 );
 
