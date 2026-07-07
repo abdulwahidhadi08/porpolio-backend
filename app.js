@@ -3,6 +3,7 @@ import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
 import path from "path";
+import fs from "fs";
 import { fileURLToPath } from "url";
 import apiRoutes from "./src/routes/api.js";
 import errorHandler from "./src/middlewares/errorHandler.js";
@@ -38,16 +39,16 @@ app.use("/api", apiLimiter);
 app.use("/api", apiRoutes);
 
 // Production Static Serving
-// If running in production mode, Express will serve the static files from the compiled frontend dist folder
-if (process.env.NODE_ENV === "production") {
-  const distPath = path.resolve(__dirname, "../frontend/dist");
+// If running in production mode and frontend build exists, Express will serve the static files from the compiled frontend dist folder
+const distPath = path.resolve(__dirname, "../frontend/dist");
+if (process.env.NODE_ENV === "production" && fs.existsSync(distPath)) {
   app.use(express.static(distPath));
   
   app.get("*", (req, res) => {
     res.sendFile(path.join(distPath, "index.html"));
   });
 } else {
-  // Simple welcome landing for backend server URL in development
+  // Simple welcome landing for backend server URL
   app.get("/", (req, res) => {
     res.json({
       success: true,
