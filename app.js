@@ -19,11 +19,18 @@ app.use(
   helmet({
     contentSecurityPolicy: false, // Disabled to prevent blocking local scripts/styles in dev
     crossOriginEmbedderPolicy: false,
-  })
+  }),
 );
 
 // CORS: Enable Cross-Origin Resource Sharing for all origins in development
-app.use(cors());
+app.use(
+  cors({
+    origin:
+      process.env.NODE_ENV === "production"
+        ? "https://portpolio-frontend-pi.vercel.app"
+        : "*",
+  }),
+);
 
 // Morgan: HTTP request logger middleware
 app.use(morgan("dev"));
@@ -43,7 +50,7 @@ app.use("/api", apiRoutes);
 const distPath = path.resolve(__dirname, "../frontend/dist");
 if (process.env.NODE_ENV === "production" && fs.existsSync(distPath)) {
   app.use(express.static(distPath));
-  
+
   app.get("*", (req, res) => {
     res.sendFile(path.join(distPath, "index.html"));
   });
