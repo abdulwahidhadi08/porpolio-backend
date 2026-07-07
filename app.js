@@ -4,9 +4,9 @@ import helmet from "helmet";
 import morgan from "morgan";
 import path from "path";
 import { fileURLToPath } from "url";
-import apiRoutes from "./routes/api.js";
-import errorHandler from "./middlewares/errorHandler.js";
-import { apiLimiter } from "./middlewares/rateLimiter.js";
+import apiRoutes from "./src/routes/api.js";
+import errorHandler from "./src/middlewares/errorHandler.js";
+import { apiLimiter } from "./src/middlewares/rateLimiter.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -40,7 +40,7 @@ app.use("/api", apiRoutes);
 // Production Static Serving
 // If running in production mode, Express will serve the static files from the compiled frontend dist folder
 if (process.env.NODE_ENV === "production") {
-  const distPath = path.resolve(__dirname, "../../dist");
+  const distPath = path.resolve(__dirname, "../frontend/dist");
   app.use(express.static(distPath));
   
   app.get("*", (req, res) => {
